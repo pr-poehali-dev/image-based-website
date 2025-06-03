@@ -1,63 +1,334 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Поехали!</title>
-    <meta name="description" content="Poehali.dev — запусти свой сайт за минуту!"/>
-    <meta name="author" content="poehali.dev"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta property="og:title" content="Поехали!">
-    <meta property="og:description" content="Ваш личный программист, который делает сайты в 30 раз быстрее обычного.">
-    <meta property="og:image:width" content="4800">
-    <meta property="og:image:height" content="2520">
-    <meta property="og:image:alt" content="Поехали! — сервис разработки сайтов с помощью ИИ">
-    <meta property="og:image" content="https://cdn.poehali.dev/intertnal/img/og.png">
-    <meta name="twitter:image" content="https://cdn.poehali.dev/intertnal/img/og.png">
-
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-    <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
-    <script src="https://cdn.poehali.dev/intertnal/js/route-min.js"></script>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-
-    <meta name="pp-name" value="image-based-website">
-      <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
-  </head>
-
-<body>
-<div id="root"></div>
-<script type="module" src="/src/main.tsx"></script>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-        m[i] = m[i] || function () {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        m[i].l = 1 * new Date();
-        for (var j = 0; j < document.scripts.length; j++) {
-            if (document.scripts[j].src === r) {
-                return;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Душа Руси - Ресторан русской кухни</title>
+    <meta name="description" content="Душа Руси - ресторан традиционной русской кухни. Завтраки, обеды, доставка.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #fef3c7, #fde68a);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(to bottom, #fde68a, #fef3c7);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #78350f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #b45309;
+            font-size: 1.125rem;
+        }
+        
+        /* Menu Section */
+        .menu-section {
+            background: linear-gradient(to bottom, #fef3c7, #fde68a);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        /* Category Card */
+        .category-card {
+            background: linear-gradient(to bottom, #d97706, #b45309);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin: 0 1rem 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .category-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-subtitle {
+            color: #fef3c7;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        
+        .image-container {
+            aspect-ratio: 1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .image-container:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-image:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #92400e;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-icon {
+            width: 2rem;
+            height: 2rem;
+            color: #fde68a;
+            margin-right: 0.75rem;
+        }
+        
+        .footer-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
-        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fde68a;
+        }
+        
+        .footer-section p {
+            font-size: 0.875rem;
+            color: #fef3c7;
+        }
+        
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-icon-small {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #fde68a;
+        }
+        
+        .footer-note {
+            font-size: 0.75rem;
+            color: #fde68a;
+        }
+        
+        /* Responsive */
+        @media (min-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+            
+            .category-card {
+                margin: 0 0 1.5rem;
+            }
+            
+            .category-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <meta name="pp-name" value="image-based-website">
+      <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
+      <script src="https://cdn.poehali.dev/intertnal/js/route-min.js"></script>
+      <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
+  </head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>Душа Руси</h1>
+            <p>Меню • Доставка • Местоположение • О нас</p>
+        </div>
+    </header>
 
-    ym(101026698, "init", {
-        trustedDomains: ["poehali.dev"],
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true,
-        trackHash: true
-    });
-</script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/101026698" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
+    <!-- Menu Section -->
+    <main class="menu-section">
+        <div class="container">
+            <!-- Завтрак -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2 class="category-title">ЗАВТРАК</h2>
+                    <p class="category-subtitle">КАШИ</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=300&fit=crop" alt="Завтрак каши 1" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1559892138-c7d072d5aef2?w=300&h=300&fit=crop" alt="Завтрак каши 2" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300&h=300&fit=crop" alt="Завтрак каши 3" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=300&h=300&fit=crop" alt="Завтрак каши 4" class="category-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Обед - Супы -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2 class="category-title">ОБЕД</h2>
+                    <p class="category-subtitle">СУПЫ</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300&h=300&fit=crop" alt="Обеденные супы 1" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=300&h=300&fit=crop" alt="Обеденные супы 2" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1604152135912-04a022e23696?w=300&h=300&fit=crop" alt="Обеденные супы 3" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=300&h=300&fit=crop" alt="Обеденные супы 4" class="category-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Обед - Рыба -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2 class="category-title">ОБЕД</h2>
+                    <p class="category-subtitle">РЫБА</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=300&h=300&fit=crop" alt="Рыбные блюда 1" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?w=300&h=300&fit=crop" alt="Рыбные блюда 2" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=300&h=300&fit=crop" alt="Рыбные блюда 3" class="category-image">
+                    </div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=300&fit=crop" alt="Рыбные блюда 4" class="category-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <svg class="footer-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41-6.88-6.88 1.37-1.37z"/>
+                </svg>
+                <h3 class="footer-title">Душа Руси</h3>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Меню</h4>
+                    <p>Завтраки • Обеды • Ужины</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Доставка</h4>
+                    <p>Быстрая доставка по городу</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Местоположение</h4>
+                    <p>Центр города • Удобное расположение</p>
+                </div>
+            </div>
+
+            <div class="footer-icons">
+                <svg class="footer-icon-small" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <svg class="footer-icon-small" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <svg class="footer-icon-small" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+            </div>
+
+            <p class="footer-note">*Контакты для заказа и вопросов о доставке</p>
+        </div>
+    </footer>
 </body>
 </html>
